@@ -6,8 +6,13 @@ export function InfoSerie() {
 
     const data = useAppSelector(state => state.serie.data)
 
-    const premiered = [data?.premiered.split('-')]
-    const ended = [data?.ended ? data.ended.split('-') : null]
+    const premiered = new Date(data?.premiered).toLocaleDateString('pt-BR', {
+        year: 'numeric'
+    })
+
+    const ended = new Date(data?.ended).toLocaleDateString('pt-BR', {
+        year: 'numeric'
+    })
 
     return (
         <VStack
@@ -30,7 +35,7 @@ export function InfoSerie() {
                         {data?.rating?.average}
                     </Text>
                 </HStack>
-                <Text>{premiered ?? premiered[0]} - {ended ? ended[0] : 'Até o momento'}</Text>
+                <Text>{premiered ?? premiered} - {ended ? ended : 'Até o momento'}</Text>
             </HStack>
             <HStack>
                 {data?.genres.map((genre, index) => (
