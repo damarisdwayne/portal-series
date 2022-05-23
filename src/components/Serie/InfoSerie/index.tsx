@@ -31,6 +31,7 @@ export function InfoSerie() {
                     <Icon as={RiStarFill} color='pink.900' />
                     <Text
                         fontSize='sm'
+                        px='6px'
                     >
                         {data?.rating?.average}
                     </Text>
