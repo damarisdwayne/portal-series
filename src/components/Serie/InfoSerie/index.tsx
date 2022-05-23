@@ -6,8 +6,8 @@ export function InfoSerie() {
 
     const data = useAppSelector(state => state.serie.data)
 
-    const premiered = data?.premiered.split('-')
-    const ended = data?.ended ? data.ended.split('-') : null
+    const premiered = [data?.premiered.split('-')]
+    const ended = [data?.ended ? data.ended.split('-') : null]
 
     return (
         <VStack
@@ -27,17 +27,17 @@ export function InfoSerie() {
                     <Text
                         fontSize='sm'
                     >
-                        {data.rating.average}
+                        {data?.rating?.average}
                     </Text>
                 </HStack>
-                <Text>{premiered[0]} - {ended ? ended[0] : 'Até o momento'}</Text>
+                <Text>{premiered ?? premiered[0]} - {ended ? ended[0] : 'Até o momento'}</Text>
             </HStack>
             <HStack>
-                {data.genres.map((genre, index) => (
-                    <Text key={genre}>{genre} {index != data.genres.length - 1 && '|'}</Text>
+                {data?.genres.map((genre, index) => (
+                    <Text key={genre}>{genre} {index != data?.genres.length - 1 && '|'}</Text>
                 ))}
             </HStack>
-            <Text dangerouslySetInnerHTML={{ __html: data.summary }}></Text>
+            <Text dangerouslySetInnerHTML={{ __html: data?.summary }}></Text>
         </VStack>
     )
 }

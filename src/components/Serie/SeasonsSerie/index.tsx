@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../hooks/reduxAppHooks";
 import { Episodes } from "./Episodes";
 
-export function TemporadaSerie() {
+export function SeasonsSerie() {
     const [seasonSelected, setSeasonSelected] = useState(1)
 
     const [episodesFilter, setEpisodeFilter] = useState([]);
@@ -11,13 +11,13 @@ export function TemporadaSerie() {
     const data = useAppSelector(state => state.serie.data)
 
     let arraySeasons = []
-    data?._embedded.episodes.map(episodes => {
-        if (!arraySeasons.includes(episodes.season)) {
-            arraySeasons.push(episodes.season)
+    data?._embedded?.episodes.map(episodes => {
+        if (!arraySeasons.includes(episodes?.season)) {
+            arraySeasons.push(episodes?.season)
         }
     })
 
-    const allEpisodes = data._embedded.episodes.map(JSON.stringify)
+    const allEpisodes = data?._embedded?.episodes.map(JSON.stringify)
         .filter(function (item, index, arr) {
             return arr.indexOf(item, index + 1) === -1;
         })
@@ -44,7 +44,7 @@ export function TemporadaSerie() {
         <VStack spacing={6} maxW={800} align='start' mx='auto'>
             <Heading size='lg'>Temporadas:</Heading>
             <HStack flexWrap='wrap' align='start'>
-                {arraySeasons.map(season => {
+                {arraySeasons?.map(season => {
 
                     return (
                         

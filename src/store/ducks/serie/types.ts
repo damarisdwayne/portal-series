@@ -11,15 +11,17 @@ export enum SerieTypes {
    */
   export interface Serie {
     network: any
-    rating: any
+    rating: {
+      average: string
+    }
     ended: any
     premiered: any
     _embedded: {
       episodes: any
     }
-    summary: any
-    image: any
-    genres: any
+    summary: string
+    image: string
+    genres: string[],
     id: string
     name: string
     season: number

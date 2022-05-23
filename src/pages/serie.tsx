@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 
 import { InfoSerie } from '../components/Serie/InfoSerie'
-import { TemporadaSerie } from "../components/Serie/SeasonsSerie";
+import { SeasonsSerie } from "../components/Serie/SeasonsSerie";
 
 export default function Serie() {
     return (
@@ -14,7 +14,7 @@ export default function Serie() {
             mt={6}
         >
             <InfoSerie/>
-            <TemporadaSerie/>
+            <SeasonsSerie/>
         </VStack>
     )
 }
